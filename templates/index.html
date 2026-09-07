@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070811">
+<meta name="description" content="ConvertSosmed — fast public media downloader and MP3 converter.">
+<link rel="manifest" href="/static/manifest.json">
+<title>ConvertSosmed — Download & Convert</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="noise"></div><div class="orb one"></div><div class="orb two"></div>
+
+<header>
+  <div class="logo"><b>✦</b> Convert<span>Sosmed</span></div>
+  <div class="head-actions">
+    <button id="lang" class="mini">🇮🇩 ID</button>
+    <button id="install" class="mini" hidden>Install</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="tag" data-i18n="tag">PRIVAT • CEPAT • MOBILE</div>
+  <h1 data-i18n="heroTitle">Link kamu.<br><span>Media kamu.</span></h1>
+  <p data-i18n="heroSub">Unduh media publik dan ubah video yang kompatibel menjadi MP3.</p>
+
+  <div class="box">
+    <div class="url">
+      <span>↗</span>
+      <input id="url" data-placeholder="url" placeholder="Tempel URL video…" autocomplete="off">
+      <button id="clear" aria-label="Clear URL">×</button>
+    </div>
+
+    <div class="platform-chips">
+      <span>▶ YouTube</span><span>f Facebook</span><span>◎ Instagram</span><span>𝕏 X</span>
+    </div>
+
+    <div id="preview" class="preview-card">
+      <div class="preview-media">
+        <img id="preview-thumb" alt="Preview thumbnail">
+        <div id="preview-placeholder" class="preview-placeholder"><span>▶</span></div>
+        <span id="preview-platform" class="platform-badge">—</span>
+      </div>
+      <div class="preview-details">
+        <div class="preview-eyebrow" id="preview-status">Pratinjau media</div>
+        <h3 id="preview-title">Masukkan link untuk melihat preview</h3>
+        <p id="preview-uploader">—</p>
+        <div class="preview-meta">
+          <span id="preview-duration">⏱ —</span>
+          <span id="preview-type">● —</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="modes">
+        <button class="mode active" data-mode="video" data-i18n="video">🎬 Video</button>
+        <button class="mode" data-mode="mp3" data-i18n="mp3">♫ MP3</button>
+      </div>
+      <select id="quality">
+        <option value="best" data-i18n="best">Kualitas terbaik</option>
+        <option value="1080">1080p</option>
+        <option value="720">720p</option>
+        <option value="480">480p</option>
+      </select>
+      <button id="download" class="primary" data-i18n="download">Download <b>→</b></button>
+    </div>
+
+    <div id="download-progress" class="download-progress" hidden>
+      <div class="progress-top">
+        <span id="progress-label">Menyiapkan download…</span>
+        <strong id="progress-value">0%</strong>
+      </div>
+      <div class="progress-track"><div id="progress-bar"></div></div>
+    </div>
+    <div id="status"></div>
+<div id="file-ready" class="file-ready" hidden>
+  <div class="file-ready-icon">✓</div>
+  <div class="file-ready-copy"><strong>File siap</strong><span id="file-name">—</span></div>
+  <div class="file-ready-actions">
+    <a id="save-file" class="save-btn" href="#" download>⬇ Simpan ke HP</a>
+    <button id="share-file" class="share-btn">↗ Bagikan</button>
+  </div>
+</div>
+  </div>
+
+  <div class="works"><span data-i18n="supported">Link publik yang didukung</span>
+    <b>YouTube</b><i>•</i><b>Instagram</b><i>•</i><b>Facebook</b><i>•</i><b>X</b>
+  </div>
+</section>
+
+<div class="feature-strip">
+  <div><span>⚡</span><strong>Fast</strong><small>Simple workflow</small></div>
+  <div><span>🎧</span><strong>MP3</strong><small>Audio extraction</small></div>
+  <div><span>📱</span><strong>Mobile</strong><small>Built for Android</small></div>
+</div>
+
+<section class="cards">
+  <article><strong>01</strong><h3 data-i18n="card1h">Tempel & preview</h3><p data-i18n="card1p">ConvertSosmed membaca metadata dasar sebelum mengunduh.</p></article>
+  <article><strong>02</strong><h3 data-i18n="card2h">Pilih format</h3><p data-i18n="card2p">Simpan video atau ekstrak file audio MP3.</p></article>
+  <article><strong>03</strong><h3 data-i18n="card3h">Download & selesai</h3><p data-i18n="card3p">File sementara dibersihkan otomatis dari perangkat.</p></article>
+</section>
+
+<section class="history">
+  <div class="section-head"><h2 data-i18n="recent">Download terbaru</h2><button id="clearHistory" data-i18n="clear">Hapus</button></div>
+  <div id="historyList" class="history-list"></div>
+</section>
+
+<div class="legal"><b data-i18n="responsible">Gunakan dengan bijak.</b>
+<span data-i18n="legal">Unduh hanya konten yang boleh kamu simpan. ConvertSosmed tidak mendukung pembobolan DRM, akun, atau konten yang dibatasi akses.</span></div>
+</main>
+
+<footer class="site-footer">
+  <div class="copyright"><span class="footer-logo">✦</span><span>© 2026 Hestia SR</span></div>
+  <a class="facebook-link" href="https://www.facebook.com/Hestiaa.sr" target="_blank" rel="noopener noreferrer">
+    <span class="facebook-icon"><svg viewBox="0 0 24 24"><path d="M14 8h3V5h-3c-2.76 0-5 2.24-5 5v2H6v3h3v6h3v-6h3l1-3h-4v-2c0-.55.45-1 1-1z"/></svg></span>
+    <span>Facebook Hestia SR</span>
+  </a>
+</footer>
+<script src="/static/app.js?v=20260907-v3"></script>
+</body>
+</html>
